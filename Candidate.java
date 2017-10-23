@@ -1,4 +1,3 @@
-
 import java.util.Arrays;
 import java.util.List;
 
@@ -19,21 +18,11 @@ public class Candidate implements Comparable<Candidate> {
 		int diff = 0; //difference between two characters
 		String c1 = c.name;
 		String a1 = this.name;
-		c1.toLowerCase(); //convert our candidate names to lowercase
-		a1.toLowerCase();
+		int size =  Math.min(c1.length(),a1.length());
 		
-		
-		int size = 0; //size comparer
-		if (c1.length() < a1.length()){ //we find the length of the shorter candidate name
-			size = c1.length();
-		}
-		else size = a1.length();
-
 		for (int i = 0; i < size; i++) { //start looping 
-			String c2 = c1.substring(i,i+1);
-			String a2 = a1.substring(i,i+1);
-			int c3 = order.indexOf(c2);
-			int a3 = order.indexOf(a2);
+			int c3 = order.indexOf(c1.substring(i,i+1));
+			int a3 = order.indexOf(a1.substring(i,i+1));
 			diff = a3-c3;; //check the character at every index in either name
 			if (diff != 0) { //if the two chars aren't the same, break. else, keep looping till it breaks.
 				break;
